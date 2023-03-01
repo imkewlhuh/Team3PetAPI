@@ -237,9 +237,6 @@ export default function petRouter(passport) {
                 });
             };
         });
-
-
-
-
+        
     return router;
 }
