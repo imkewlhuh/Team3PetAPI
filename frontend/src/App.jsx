@@ -1,14 +1,18 @@
 // delete everything here and type rfce to get react  
 import React from 'react';
 import axios from 'axios'; 
+import { ChakraProvider } from "@chakra-ui/react";
 import { useState } from 'react'
 import { Fragment } from 'react'
 import { Button, FormControl, FormLabel, Alert, Input, AlertIcon } from '@chakra-ui/react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import './App2.css'
+import Layout from "../pages/layout";
+import PetPage from "../pages/petpage";
+import PetUser from "../pages/pet-user";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { getPet, getPetByUser } from '../api';
 
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiaGl3b3QiLCJpZCI6M30sImlhdCI6MTY3NzcyNjIzOH0.TXBBnQ5Ab4PrVxfqAeYrYjGKvIvbgyks2iWTgG9dTp0"
 
 function Navbar(){
   return(
@@ -26,23 +30,40 @@ function Navbar(){
 function Sidebar(){
   return(
     <div className="sidebar">
-      <h1>sidebar</h1>
-      <div className='sidebar-link'>
-        <a href=''>Home</a>
-        <a href=''>About</a>
-      
-      </div>
+      <h1>Logged in</h1>
+     
     </div>
   )
 }
 
-function Layout(props){
-  return(
-    <div className="layout">
-      {props.children}
-    </div>
-  )
-}
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/pets",
+        element: <PetPage />,
+        loader: () => {
+          return getPet();
+        },
+      }
+    ],
+  },
+  {
+    path: "/pets/user",
+    element: <PetUser />,
+    loader: ({ params }) => {
+    const petUser = params.user;
+    return getPetByUser(petUser);
+
+      
+    },
+  }
+  
+]);
 
 function Login(props){
   const [username, setUsername] = useState("");
@@ -57,15 +78,12 @@ function Login(props){
       
     }).then(response => {
       if(response.status == 200){
-        console.log("logged in2");
+        console.log("Logged in");
+        sessionStorage.setItem("token", response.data.token)
         props.setLoginUser(true); 
         setError(false)
-      } else {
-        props.setError(true)
-        console.log("error");
-      }
-      console.log(response)
-      console.log("Logged in")
+      } 
+      
     }).catch(error => {
       setError(true)
         console.log("error");
@@ -114,9 +132,6 @@ function SignUp(props){
         <FormLabel>New Password</FormLabel>
         <Input type="password" name="password" />
       </FormControl>
-        {/* <input onChange={(e)=> setUsername(e.target.value)} type="text" name="username" />
-        <input onChange={(e)=> setPassword(e.target.value)} type="password" name="password" />
-        <input type="submit" value="Login" /> */}
         <Button colorScheme='blue' width="20%" marginBottom={5}>Register</Button>
       </form>
    </div>
@@ -143,9 +158,15 @@ function App() {
           {/* div for sidebar and layout  */}
           <div className='main-box'>
             <Sidebar />
-            <Layout>
-              <h1>Hello world</h1>
-            </Layout> 
+            
+            <ChakraProvider > 
+              
+                <RouterProvider router={router} />
+             
+            </ChakraProvider>
+            
+            
+            
           </div>
       </>
      : 
