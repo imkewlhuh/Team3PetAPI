@@ -3,8 +3,7 @@ import React from 'react';
 import axios from 'axios'; 
 import { ChakraProvider } from "@chakra-ui/react";
 import { useState } from 'react'
-import { Fragment } from 'react'
-import { Button, FormControl, FormLabel, Alert, Input, AlertIcon } from '@chakra-ui/react'
+import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 import './App.css'
 import './App2.css'
 import Layout from "../pages/layout";
@@ -17,11 +16,16 @@ import { getPet, getPetByUser } from '../api';
 function Navbar(){
   return(
     <div className="navbar">
-      <h1>Pets App</h1>
+      <h1> You are logged in!</h1>
+      <h1>Welcome to the Pets App</h1>
+      
       <div className='menu-link'>
         <a href=''>Home</a>
         <a href=''>About</a>
         <a href=''>Contact</a>
+      </div>
+      <div>
+      <a href=''>Log out</a>
       </div>
     </div>
   )
@@ -30,7 +34,7 @@ function Navbar(){
 function Sidebar(){
   return(
     <div className="sidebar">
-      <h1>Logged in</h1>
+      <h1>Contents</h1>
      
     </div>
   )
@@ -145,18 +149,18 @@ function App() {
   const [ isUserLoggedIn, setUserLoggedIn ] = useState(false);
   const [ showLogin, setShowLogin ] = useState(true); 
   return (
-    <div className="app">
+    <div className="app" style={{backgroundImage: `url("../images/pets.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
       {
         isUserLoggedIn ? 
       //using fragment <> </> 
       <>
           {/* div for nav bar */}
-          <div>
+          <div style={{backgroundImage: `url("../images/loggedin.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <Navbar />
           </div> 
 
           {/* div for sidebar and layout  */}
-          <div className='main-box'>
+          <div className='main-box' style={{backgroundImage: `url("../images/pets2.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <Sidebar />
             
             <ChakraProvider > 

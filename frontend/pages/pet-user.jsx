@@ -12,6 +12,7 @@ export default function PetUser() {
         {pet ? (
        
         <ul>
+          <h3><b>User Pets Information:</b></h3>
           {pet.map((p) => (
             <div key={p.name}>
                 <div to={`${p.id}`}>{p.name}</div>
@@ -19,7 +20,7 @@ export default function PetUser() {
             
           ))}
           <div>-----------------</div>
-          <h3><b>Private Route Pet Information:</b></h3>
+          
           {pet.map((p) => (
             <div key={p.name}>
                 <div to={`${p.id}`}>{p.name} is a {p.species}</div>

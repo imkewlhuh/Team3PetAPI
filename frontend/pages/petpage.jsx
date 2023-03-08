@@ -8,6 +8,7 @@ export default function PetPage() {
     <div className="pet-page">
       {pet ? (
         <ul>
+          <h3><b>All Pets Information:</b></h3>
           {pet.map((p) => (
             <div key={p.name}>
                 <div to={`${p.id}`}>{p.name}</div>
@@ -15,7 +16,7 @@ export default function PetPage() {
             
           ))}
           <div>==================</div>
-          <h3><b>Public Route Pet Information:</b></h3>
+          
           {pet.map((p) => (
             <div key={p.name}>
                 <div to={`${p.id}`}>{p.name} is a {p.species}</div>
