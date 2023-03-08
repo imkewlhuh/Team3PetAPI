@@ -1,4 +1,4 @@
-import { HStack, Box, Link } from "@chakra-ui/react";
+import { HStack, Box } from "@chakra-ui/react";
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function Layout() {

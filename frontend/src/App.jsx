@@ -6,9 +6,9 @@ import { useState } from 'react'
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 import './App.css'
 import './App2.css'
-import Layout from "../pages/layout";
-import PetPage from "../pages/petpage";
-import PetUser from "../pages/pet-user";
+import Layout from "../pages/layout.jsx";
+import PetPage from "../pages/petpage.jsx";
+import PetUser from "../pages/pet-user.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getPet, getPetByUser } from '../api';
 
@@ -90,7 +90,7 @@ function Login(props){
       
     }).catch(error => {
       setError(true)
-        console.log("error");
+        console.log("error", error);
       
     })
     

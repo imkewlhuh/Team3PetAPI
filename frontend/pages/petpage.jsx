@@ -1,5 +1,4 @@
-import { useLoaderData, Link } from "react-router-dom";
-import { getPet } from "../api/index";
+import { useLoaderData } from "react-router-dom";
 
 export default function PetPage() {
   let pet = useLoaderData();
