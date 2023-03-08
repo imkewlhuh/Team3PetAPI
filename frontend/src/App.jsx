@@ -149,18 +149,18 @@ function App() {
   const [ isUserLoggedIn, setUserLoggedIn ] = useState(false);
   const [ showLogin, setShowLogin ] = useState(true); 
   return (
-    <div className="app" style={{backgroundImage: `url("../images/pets.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+    <div className="app" style={{backgroundImage: `url("../images/pets.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
       {
         isUserLoggedIn ? 
       //using fragment <> </> 
       <>
           {/* div for nav bar */}
-          <div style={{backgroundImage: `url("../images/loggedin.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+          <div style={{backgroundImage: `url("../images/loggedin.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
             <Navbar />
           </div> 
 
           {/* div for sidebar and layout  */}
-          <div className='main-box' style={{backgroundImage: `url("../images/pets2.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+          <div className='main-box' style={{backgroundImage: `url("../images/pets2.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
             <Sidebar />
             
             <ChakraProvider > 
