@@ -1,0 +1,62 @@
+.app{
+  border: solid 1px;
+  height: 100vh;
+  
+}
+
+.navbar{
+  border: solid 1px;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+a{
+  list-style :none;
+  text-decoration: none;
+}
+
+.menu-link{
+  display: flex;
+  gap: 1rem; 
+  align-items: center;
+}
+
+.menu-link >a {
+  color: white;
+}
+
+.sidebar-link{
+  display: flex;
+  gap: 1rem; 
+  align-items: center;
+  
+}
+
+.sidebar-link > a{
+    color: white;
+
+}
+
+.main-box{
+  border: solid 1px;
+  height: 100%; 
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+
+}
+
+.sidebar{
+  
+  border: solid 1px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+}
+
+.layout{
+  border: solid 1px;
+}
