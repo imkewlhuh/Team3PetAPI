@@ -19,4 +19,4 @@ export default function createServer() {
     app.use("/pets", petRouter(passport));
 
     return app;
-}
+};

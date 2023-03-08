@@ -155,7 +155,7 @@ function App() {
       //using fragment <> </> 
       <>
           {/* div for nav bar */}
-          <div style={{backgroundImage: `url("../images/loggedin.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
+          <div style={{backgroundImage: `url("../images/loggedin.jpeg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <Navbar />
           </div> 
 
